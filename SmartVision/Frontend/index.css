@@ -177,6 +177,10 @@ body {
     margin-bottom: 1.5rem;
 }
 
+.form-row.full-width {
+    grid-template-columns: 1fr;
+}
+
 .form-group {
     display: flex;
     flex-direction: column;

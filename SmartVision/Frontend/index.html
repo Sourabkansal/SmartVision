@@ -25,23 +25,19 @@
                 <h2>Customer Information</h2>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="customerPO">Customer PO No</label>
-                        <input type="text" id="customerPO" name="customerPO">
-                    </div>
-                    <div class="form-group">
                         <label for="accountName">Account Name</label>
                         <select id="accountName" name="accountName">
                             <option value="">-Select-</option>
                         </select>
                     </div>
-                </div>
-                <div class="form-row">
                     <div class="form-group">
                         <label for="contactPerson">Contact Person</label>
                         <select id="contactPerson" name="contactPerson">
                             <option value="">-Select-</option>
                         </select>
                     </div>
+                </div>
+                <div class="form-row full-width">
                     <div class="form-group">
                         <label for="contactEmail">Contact Email Address</label>
                         <input type="email" id="contactEmail" name="contactEmail">
@@ -50,24 +46,20 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="contactPhone">Contact Phone Number</label>
-                        <div class="phone-input-group">
-                            <select class="country-code" id="phoneCountryCode" name="phoneCountryCode">
-                                <option value="+91">🇮🇳 +91</option>
-                                <option value="+1">🇺🇸 +1</option>
-                                <option value="+44">🇬🇧 +44</option>
+                        <div class="phone-input-container">
+                            <select class="country-code-dropdown" id="phoneCountryCode" name="phoneCountryCode">
+                                <option value="+971">🇦🇪 +971</option>
                             </select>
-                            <input type="tel" id="contactPhone" name="contactPhone" placeholder="81234 56789">
+                            <input type="tel" class="phone-input" id="contactPhone" name="contactPhone" placeholder="50 123 4567">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="contactMobile">Contact Mobile Number</label>
-                        <div class="phone-input-group">
-                            <select class="country-code" id="mobileCountryCode" name="mobileCountryCode">
-                                <option value="+91">🇮🇳 +91</option>
-                                <option value="+1">🇺🇸 +1</option>
-                                <option value="+44">🇬🇧 +44</option>
+                        <div class="phone-input-container">
+                            <select class="country-code-dropdown" id="mobileCountryCode" name="mobileCountryCode">
+                                <option value="+971">🇦🇪 +971</option>
                             </select>
-                            <input type="tel" id="contactMobile" name="contactMobile" placeholder="81234 56789">
+                            <input type="tel" class="phone-input" id="contactMobile" name="contactMobile" placeholder="50 123 4567">
                         </div>
                     </div>
                 </div>

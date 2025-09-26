@@ -137,7 +137,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const recordData = {};
 
     // Map form fields to Zoho CRM field names (exact match)
-    if (getValue("customerPO")) recordData["PO_No"] = getValue("customerPO");
     if (getValue("contactEmail")) recordData["Contact_Email_Address"] = getValue("contactEmail");
     if (getValue("contactPhone")) recordData["Contact_Phone_Number"] = getValue("contactPhone");
     if (getValue("contactMobile")) recordData["Contact_Mobile_Number"] = getValue("contactMobile");
