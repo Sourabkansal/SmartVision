@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart vesion - Material Request Form</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="form-header">
+            <div class="logo-container">
+                <div class="logo">SV</div>
+                <h1>Smart vesion</h1>
+            </div>
+            <p class="subtitle">Material Request Management System</p>
+        </div>
+
+        <form id="partnerForm" class="material-form">
+            <!-- Customer Information Section -->
+            <div class="form-section">
+                <h2>Customer Information</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="customerPO">Customer PO No</label>
+                        <input type="text" id="customerPO" name="customerPO">
+                    </div>
+                    <div class="form-group">
+                        <label for="accountName">Account Name</label>
+                        <select id="accountName" name="accountName">
+                            <option value="">-Select-</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contactPerson">Contact Person</label>
+                        <select id="contactPerson" name="contactPerson">
+                            <option value="">-Select-</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Contact Email Address</label>
+                        <input type="email" id="contactEmail" name="contactEmail">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contactPhone">Contact Phone Number</label>
+                        <div class="phone-input-group">
+                            <select class="country-code" id="phoneCountryCode" name="phoneCountryCode">
+                                <option value="+91">🇮🇳 +91</option>
+                                <option value="+1">🇺🇸 +1</option>
+                                <option value="+44">🇬🇧 +44</option>
+                            </select>
+                            <input type="tel" id="contactPhone" name="contactPhone" placeholder="81234 56789">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMobile">Contact Mobile Number</label>
+                        <div class="phone-input-group">
+                            <select class="country-code" id="mobileCountryCode" name="mobileCountryCode">
+                                <option value="+91">🇮🇳 +91</option>
+                                <option value="+1">🇺🇸 +1</option>
+                                <option value="+44">🇬🇧 +44</option>
+                            </select>
+                            <input type="tel" id="contactMobile" name="contactMobile" placeholder="81234 56789">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="poDate">PO Date</label>
+                        <input type="text" id="poDate" name="poDate" placeholder="dd-MMM-yyyy">
+                    </div>
+                    <div class="form-group">
+                        <label for="opportunityID">Opportunity ID</label>
+                        <input type="text" id="opportunityID" name="opportunityID">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="mirNo">MIR No</label>
+                        <input type="text" id="mirNo" name="mirNo" value="MR0093" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="mirDate">MIR Date</label>
+                        <input type="text" id="mirDate" name="mirDate" value="26-Sep-2025" readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="requester">Requester</label>
+                        <input type="text" id="requester" name="requester">
+                    </div>
+                    <div class="form-group">
+                        <label for="opportunityName">Opportunity Name</label>
+                        <input type="text" id="opportunityName" name="opportunityName">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Information Section -->
+            <div class="form-section">
+                <h2>Additional Information</h2>
+                <div class="form-group">
+                    <label for="shippingInstruction">Shipping Instruction</label>
+                    <textarea id="shippingInstruction" name="shippingInstruction" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="comments">Comments</label>
+                    <textarea id="comments" name="comments" rows="4"></textarea>
+                </div>
+            </div>
+
+            <!-- Inventory Items Section -->
+            <div class="form-section">
+                <h2>Inventory Items</h2>
+                <div class="professional-items-container">
+                    <div class="items-header">
+                        <div class="header-item">Product Name</div>
+                        <div class="header-item">Part Number <span class="required">*</span></div>
+                        <div class="header-item">Quantity</div>
+                        <div class="header-item">Action</div>
+                    </div>
+                    <div id="inventoryItems" class="items-list">
+                        <!-- Dynamic inventory items will be added here -->
+                    </div>
+                    <button type="button" class="add-item-btn" onclick="addInventoryItem()">+ Add New</button>
+                </div>
+            </div>
+
+            <!-- Non-Inventory Items Section -->
+            <div class="form-section">
+                <h2>Non-Inventory Items</h2>
+                <div class="professional-items-container">
+                    <div class="items-header">
+                        <div class="header-item">Product Name</div>
+                        <div class="header-item">Product Code</div>
+                        <div class="header-item">Specification</div>
+                        <div class="header-item">Description</div>
+                        <div class="header-item">Quantity</div>
+                        <div class="header-item">Action</div>
+                    </div>
+                    <div id="nonInventoryItems" class="items-list">
+                        <!-- Dynamic non-inventory items will be added here -->
+                    </div>
+                    <button type="button" class="add-item-btn" onclick="addNonInventoryItem()">+ Add New</button>
+                </div>
+            </div>
+
+            <!-- Submit Buttons -->
+            <div class="form-actions">
+                <button type="submit" class="submit-btn">Submit</button>
+                <button type="reset" class="reset-btn">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
