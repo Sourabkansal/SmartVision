@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to fetch latest MIR number from backend
   async function fetchLatestMIRNumber() {
     try {
-      const response = await fetch('http://localhost:3000/get-latest-mir');
+      const response = await fetch('https://smartvision-1.onrender.com/get-latest-mir');
       if (response.ok) {
         const result = await response.json();
         console.log('Latest MIR data:', result);
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Form data:", JSON.stringify(formData, null, 2));
 
     try {
-      const response = await fetch(`http://localhost:3000/set-data`, {
+      const response = await fetch(`https://smartvision-1.onrender.com/set-data`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

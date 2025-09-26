@@ -10,7 +10,9 @@ import { initTokenRefresh, getAccessToken, fetchAccessToken } from './AccessToke
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(cors({
+  origin: ["https://smartvisionn.netlify.app" , "*"]
+}));
 app.use(bodyParser.json());
 
 // Function to generate next MIR number
