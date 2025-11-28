@@ -126,7 +126,7 @@ async function startServer() {
     app.post('/set-data', setApiData);
 
     app.get('/', (req, res) => {
-      res.send('Smart vesion Backend API is running!');
+      res.send('Smart vision Backend API is running!');
     });
     
     app.listen(PORT, () => {
